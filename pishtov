@@ -1,0 +1,13 @@
+context.fillStyle = 'color';  (za fillvane na space)
+context.fillRect(cordsX, cordsY, width, height);
+
+context.strokeStyle = 'color'; (za liniq)
+context.lineWidth = num;
+context.moveTo();
+
+
+if (areColliding(coordsX1, coordsY1, width, height, coordsX2, coordsY2, width, height))
+
+if (isKeyPressed[key]) {
+        do smth
+    }
