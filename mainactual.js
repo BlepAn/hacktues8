@@ -11,9 +11,12 @@ let touchfuel = false, gotfuel = false;
 let touchplan1 = false, gotplan1 = false;
 let touchplan2 = false, gotplan2 = false;
 let touchpickaxe = false, gotpickaxe = false;
+let touchrocket = false;
 let finish = true;
 
 let fuel = 0; pick = 0, plan = 0, iron = 0;
+
+let final = false, rocketgo = false;
 
 
 
@@ -44,7 +47,7 @@ function update() {
       direction[2] = "left";
    }
    //checking collision 
-   if (areColliding(myX, myY, myW, myH, 95, 30, 10, 160)) {
+   if (areColliding(myX, myY, myW, myH, 95, 30, 10, 160)) { 
       if (direction[2] == "left") {
          myX += 2;
       }
@@ -74,7 +77,7 @@ function update() {
       }
    }
 
-   if (areColliding(myX, myY, myW, myH, 95, 180, 310, 10)) {
+   if (areColliding(myX, myY, myW, myH, 95, 30, 310, 10)) {
       if (direction[1] == "up") {
          myY += 2;
       }
@@ -124,7 +127,11 @@ function update() {
 
    if (areColliding(myX, myY, myW, myH, ironrockX, ironrockY, 20, 20)) {
       touchiron = true;
-   } else touchiron = false
+   } else touchiron = false;
+
+   if (areColliding(myX, myY, myW, myH, 850, 480, 200, 220)) {
+      touchrocket = true;
+   } else touchrocket = false;
 
 
    //text
@@ -164,6 +171,14 @@ function update() {
    if (fuel == 1 && iron == 1 && plan == 2 && finish == true) {
       alert("I have everything I need! I can go home now.");
       finish = false;
+   }
+   if(rocketgo== true){
+    /// dai muuuuuu nai tvato endinga nz opravqi se :)
+
+
+
+
+    //// ZABELEZHI GO UWU OWO ÚoÙ ÙWÚ 
    }
 
 
@@ -205,7 +220,7 @@ function draw() {
 
    //parts!
    drawImage(rockwithiron, ironrockX, ironrockY, 70, 50);
-   drawImage(fuel, fuelX, fuelY, 25, 30);
+   drawImage(fueltank, fuelX, fuelY, 25, 30);
    drawImage(backgroundfuel, 220, 155, 40, 25);
    drawImage(fakepart[3], pickaxeX, pickaxeY, 50, 50)
    drawImage(rocket, 850, 480, 200, 220);
@@ -250,6 +265,9 @@ function keyup(key) {
          plan2X = -100000;
          plan2Y = -100000;
          plan++;
+      }
+      if(touchrocket == true ){
+         rocketgo = true;
       }
    }
 }
